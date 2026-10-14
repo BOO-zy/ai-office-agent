@@ -1,0 +1,1403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'AlimamaShuHeiTi';
+  src: url('/fonts/AlimamaShuHeiTi-Bold.woff2') format('woff2'),
+       url('/fonts/AlimamaShuHeiTi-Bold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-shuhei {
+  font-family: 'AlimamaShuHeiTi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #060A17;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .brand-font {
+    font-family: 'AlimamaShuHeiTi', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ========================================================= */
+/* Earth Loader from Uiverse.io by Novaxlo                   */
+/* ========================================================= */
+.earth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.earth-loader {
+  --watercolor: #3344c1;
+  --landcolor: #7cc133;
+  width: 7.5em;
+  height: 7.5em;
+  background-color: var(--watercolor);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow:
+    inset 0em 0.5em rgb(255, 255, 255, 0.25),
+    inset 0em -0.5em rgb(0, 0, 0, 0.25),
+    0 10px 25px rgba(0, 0, 0, 0.2);
+  border: solid 0.15em white;
+  animation: startround 1s;
+  animation-iteration-count: 1;
+}
+
+.earth-loader-compact {
+  font-size: 0.6em;
+}
+
+.earth p {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.25em;
+  font-size: 1.25em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.earth-loader svg:nth-child(1) {
+  position: absolute;
+  bottom: -2em;
+  width: 7em;
+  height: auto;
+  animation: round1 5s infinite linear 0.75s;
+}
+
+.earth-loader svg:nth-child(2) {
+  position: absolute;
+  top: -3em;
+  width: 7em;
+  height: auto;
+  animation: round1 5s infinite linear;
+}
+
+.earth-loader svg:nth-child(3) {
+  position: absolute;
+  top: -2.5em;
+  width: 7em;
+  height: auto;
+  animation: round2 5s infinite linear;
+}
+
+.earth-loader svg:nth-child(4) {
+  position: absolute;
+  bottom: -2.2em;
+  width: 7em;
+  height: auto;
+  animation: round2 5s infinite linear 0.75s;
+}
+
+@keyframes startround {
+  0% {
+    filter: brightness(500%);
+    box-shadow: none;
+  }
+  75% {
+    filter: brightness(500%);
+    box-shadow: none;
+  }
+  100% {
+    filter: brightness(100%);
+    box-shadow:
+      inset 0em 0.5em rgb(255, 255, 255, 0.25),
+      inset 0em -0.5em rgb(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes round1 {
+  0% {
+    left: -2em;
+    opacity: 100%;
+    transform: skewX(0deg) rotate(0deg);
+  }
+  30% {
+    left: -6em;
+    opacity: 100%;
+    transform: skewX(-25deg) rotate(25deg);
+  }
+  31% {
+    left: -6em;
+    opacity: 0%;
+    transform: skewX(-25deg) rotate(25deg);
+  }
+  35% {
+    left: 7em;
+    opacity: 0%;
+    transform: skewX(25deg) rotate(-25deg);
+  }
+  45% {
+    left: 7em;
+    opacity: 100%;
+    transform: skewX(25deg) rotate(-25deg);
+  }
+  100% {
+    left: -2em;
+    opacity: 100%;
+    transform: skewX(0deg) rotate(0deg);
+  }
+}
+
+@keyframes round2 {
+  0% {
+    left: 5em;
+    opacity: 100%;
+    transform: skewX(0deg) rotate(0deg);
+  }
+  75% {
+    left: -7em;
+    opacity: 100%;
+    transform: skewX(-25deg) rotate(25deg);
+  }
+  76% {
+    left: -7em;
+    opacity: 0%;
+    transform: skewX(-25deg) rotate(25deg);
+  }
+  77% {
+    left: 8em;
+    opacity: 0%;
+    transform: skewX(25deg) rotate(-25deg);
+  }
+  80% {
+    left: 8em;
+    opacity: 100%;
+    transform: skewX(25deg) rotate(-25deg);
+  }
+  100% {
+    left: 5em;
+    opacity: 100%;
+    transform: skewX(0deg) rotate(0deg);
+  }
+}
+
+/* ========================================================= */
+/* Thinking Loader from Uiverse.io by mobinkakei             */
+/* ========================================================= */
+.thinking-wrapper {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.thinking-circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 15%;
+  transform-origin: 50%;
+  animation: circle7124 .5s alternate infinite ease;
+}
+
+@keyframes circle7124 {
+  0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+.thinking-circle:nth-child(2) {
+  left: 45%;
+  animation-delay: .2s;
+}
+
+.thinking-circle:nth-child(3) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+.thinking-shadow {
+  width: 20px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.45);
+  position: absolute;
+  top: 62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left: 15%;
+  filter: blur(1px);
+  animation: shadow046 .5s alternate infinite ease;
+}
+
+@keyframes shadow046 {
+  0% {
+    transform: scaleX(1.5);
+  }
+
+  40% {
+    transform: scaleX(1);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scaleX(.2);
+    opacity: .4;
+  }
+}
+
+.thinking-shadow:nth-child(4) {
+  left: 45%;
+  animation-delay: .2s;
+}
+
+.thinking-shadow:nth-child(5) {
+  left: auto;
+  right: 15%;
+  animation-delay: .3s;
+}
+
+/* ========================================================= */
+/* Uiverse Send Button by marcelodolza (Theme Blue & Green)  */
+/* ========================================================= */
+.uiverse-send-button {
+  --primary: #7cc133;
+  --neutral-1: #ffffff;
+  --neutral-2: #f1f5f9;
+  --radius: 14px;
+
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: 0 0.5px 0.5px 1px rgba(255, 255, 255, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.25), 0 2px 4px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  min-width: 130px;
+  padding: 0 16px;
+  height: 42px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 700;
+  color: #3344c1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.uiverse-send-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.5);
+}
+
+.uiverse-send-button:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.6),
+    0 12px 24px rgba(0, 0, 0, 0.3), 0 8px 3px -3px rgba(0, 0, 0, 0.08);
+}
+
+.uiverse-send-button:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.4),
+    0 6px 3px -3px rgba(0, 0, 0, 0.2);
+}
+
+.uiverse-send-button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.25)) border-box;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+.uiverse-send-button:hover:not(:disabled)::after {
+  transform: scale(1.03, 1.06);
+  box-shadow: inset 0 -1px 3px 0 rgba(255, 255, 255, 1);
+}
+
+.uiverse-send-button::before {
+  content: "";
+  inset: 3.5px;
+  position: absolute;
+  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+  border-radius: 12px;
+  filter: blur(0.5px);
+  z-index: 2;
+}
+
+.uiverse-send-button .state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3344c1;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.uiverse-send-button .state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3344c1;
+}
+
+.uiverse-send-button .state .icon svg {
+  overflow: visible;
+}
+
+/* Outline */
+.uiverse-send-button .outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  inset: -2px -2px;
+}
+
+.uiverse-send-button .outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 60%,
+    #7cc133 80%,
+    transparent 100%
+  );
+  animation: spinBtn 2s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes spinBtn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.uiverse-send-button:hover:not(:disabled) .outline {
+  opacity: 1;
+}
+
+.uiverse-send-button:hover:not(:disabled) .outline::before {
+  animation-play-state: running;
+}
+
+/* Letters */
+.uiverse-send-button .state p span {
+  display: block;
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s);
+}
+
+.uiverse-send-button:hover:not(:disabled) p span {
+  opacity: 1;
+  animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
+}
+
+.uiverse-send-button:focus p span,
+.uiverse-send-button.is-sending p span {
+  opacity: 1;
+  animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
+}
+
+@keyframes wave {
+  30% {
+    opacity: 1;
+    transform: translateY(3px) translateX(0) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px) translateX(0) rotate(0);
+    color: var(--primary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) translateX(4px) rotate(-90deg);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(3px) translateX(0) rotate(0);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px) translateX(0) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+
+@keyframes disapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(4px) translateY(16px);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+}
+
+/* Plane */
+.uiverse-send-button .state--default .icon svg {
+  animation: land 0.6s ease forwards;
+}
+
+.uiverse-send-button:hover:not(:disabled) .state--default .icon {
+  transform: rotate(45deg) scale(1.15);
+  color: var(--primary);
+}
+
+.uiverse-send-button:focus .state--default svg,
+.uiverse-send-button.is-sending .state--default svg {
+  animation: takeOff 0.8s linear forwards;
+}
+
+.uiverse-send-button:focus .state--default .icon,
+.uiverse-send-button.is-sending .state--default .icon {
+  transform: rotate(0) scale(1.15);
+}
+
+@keyframes takeOff {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(50px) rotate(45deg) scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120px) rotate(45deg) scale(0);
+  }
+}
+
+@keyframes land {
+  0% {
+    transform: translateX(-40px) translateY(20px) rotate(-50deg) scale(1.6);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Contrail */
+.uiverse-send-button .state--default .icon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  left: -5px;
+  background: linear-gradient(to right, transparent, rgba(124, 193, 51, 0.7));
+}
+
+.uiverse-send-button:focus .state--default .icon:before,
+.uiverse-send-button.is-sending .state--default .icon:before {
+  animation: contrail 0.8s linear forwards;
+}
+
+@keyframes contrail {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  8% {
+    width: 15px;
+  }
+  60% {
+    opacity: 0.7;
+    width: 60px;
+  }
+  100% {
+    opacity: 0;
+    width: 120px;
+  }
+}
+
+/* States */
+.uiverse-send-button .state {
+  padding-left: 24px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+}
+
+.uiverse-send-button .state--default span:nth-child(4) {
+  margin-right: 4px;
+}
+
+.uiverse-send-button .state--sent {
+  display: none;
+}
+
+.uiverse-send-button .state--sent svg {
+  transform: scale(1.15);
+  margin-right: 6px;
+  color: var(--primary);
+}
+
+.uiverse-send-button:focus .state--default,
+.uiverse-send-button.is-sending .state--default {
+  position: absolute;
+}
+
+.uiverse-send-button:focus .state--sent,
+.uiverse-send-button.is-sending .state--sent {
+  display: flex;
+}
+
+.uiverse-send-button:focus .state--sent span,
+.uiverse-send-button.is-sending .state--sent span {
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.15s);
+}
+
+.uiverse-send-button:focus .state--sent .icon svg,
+.uiverse-send-button.is-sending .state--sent .icon svg {
+  opacity: 0;
+  animation: appear 1.2s ease forwards 0.8s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(3) rotate(-40deg);
+    color: var(--primary);
+    filter: blur(3px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.7);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================================= */
+/* Space & Shooting Stars Animation (瞬间划过、转瞬即逝)     */
+/* ========================================================= */
+@keyframes meteorPass {
+  0% {
+    opacity: 0;
+    transform: rotate(215deg) translateX(0) scale(0.6);
+  }
+  0.6% {
+    opacity: 1;
+    transform: rotate(215deg) translateX(-80px) scale(1.4);
+  }
+  5% {
+    opacity: 1;
+    transform: rotate(215deg) translateX(-750px) scale(1.1);
+  }
+  8% {
+    opacity: 0;
+    transform: rotate(215deg) translateX(-1250px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(215deg) translateX(-1250px) scale(0.2);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.2);
+  }
+}
+
+.meteor {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px 2px #ffffff, 
+    0 0 20px 4px #3344c1, 
+    0 0 35px 6px rgba(124, 193, 51, 0.5);
+  animation: meteorPass linear infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.meteor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 250px;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    #ffffff 0%, 
+    rgba(255, 255, 255, 0.95) 15%, 
+    rgba(51, 68, 193, 0.85) 50%, 
+    rgba(124, 193, 51, 0.4) 75%, 
+    transparent 100%
+  );
+  border-radius: 9999px;
+  filter: drop-shadow(0 0 6px rgba(51, 68, 193, 0.7));
+}
+
+/* ========================================================= */
+/* Uiverse.io Morph Card (Themed in Earth Ocean Blue #3344c1)*/
+/* ========================================================= */
+.uiverse-morph-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  background: rgba(13, 23, 51, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(51, 68, 193, 0.45);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.uiverse-morph-card::before,
+.uiverse-morph-card::after {
+  position: absolute;
+  content: "";
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Top-right corner petal */
+.uiverse-morph-card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 16px 0 100%;
+  background-color: #3344c1;
+}
+
+/* Bottom-left corner petal */
+.uiverse-morph-card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 16px;
+  background-color: #4356e8;
+}
+
+/* Hover expansion to 100% */
+.uiverse-morph-card:hover::before,
+.uiverse-morph-card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.uiverse-morph-card:hover {
+  border-color: #3344c1;
+  box-shadow: 0 12px 32px -4px rgba(51, 68, 193, 0.6);
+}
+
+/* Common text styling in default state */
+.uiverse-morph-card .file-title {
+  color: #ffffff;
+}
+.uiverse-morph-card .file-meta {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.uiverse-morph-card .file-icon-box {
+  background: rgba(51, 68, 193, 0.25);
+  color: #ffffff;
+  border: 1.5px solid rgba(51, 68, 193, 0.6);
+}
+
+.uiverse-morph-card .file-badge {
+  background: rgba(51, 68, 193, 0.25);
+  color: #ffffff;
+  border: 1px solid rgba(51, 68, 193, 0.5);
+}
+
+.uiverse-morph-card .file-ready {
+  color: #7cc133;
+}
+
+.uiverse-morph-card .file-download-btn {
+  background: #3344c1;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover content inversion */
+.uiverse-morph-card:hover .file-icon-box {
+  background: #081124;
+  color: #ffffff;
+  border-color: #081124;
+}
+
+.uiverse-morph-card:hover .file-title {
+  color: #ffffff;
+}
+
+.uiverse-morph-card:hover .file-badge {
+  background: #081124;
+  color: #7cc133;
+  border-color: #081124;
+}
+
+.uiverse-morph-card:hover .file-meta {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.uiverse-morph-card:hover .file-ready {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.uiverse-morph-card:hover .file-download-btn {
+  background: #081124;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(8, 17, 36, 0.5);
+}
+
+/* ========================================================= */
+/* Uiverse.io Morph Button (Header "新对话", Earth Blue)      */
+/* ========================================================= */
+.uiverse-morph-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(13, 23, 51, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(51, 68, 193, 0.5);
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.uiverse-morph-btn::before,
+.uiverse-morph-btn::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Top-right corner petal */
+.uiverse-morph-btn::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 12px 0 100%;
+  background-color: #3344c1;
+}
+
+/* Bottom-left corner petal */
+.uiverse-morph-btn::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 12px;
+  background-color: #4356e8;
+}
+
+/* Hover expansion to 100% */
+.uiverse-morph-btn:hover::before,
+.uiverse-morph-btn:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.uiverse-morph-btn:hover {
+  border-color: #3344c1;
+  box-shadow: 0 0 20px rgba(51, 68, 193, 0.7);
+  transform: translateY(-1px);
+}
+
+.uiverse-morph-btn:active {
+  transform: scale(0.96);
+}
+
+/* Text and icon styling in button */
+.uiverse-morph-btn .morph-btn-text {
+  color: #ffffff;
+}
+
+.uiverse-morph-btn .morph-btn-icon {
+  color: #4a5fe8;
+}
+
+/* Hover inversion */
+.uiverse-morph-btn:hover .morph-btn-text {
+  color: #ffffff;
+}
+
+.uiverse-morph-btn:hover .morph-btn-icon {
+  color: #7cc133;
+  transform: rotate(90deg);
+}
+
+/* ========================================================= */
+/* Uiverse.io Neo-Brutalism 3D Input by 0xnihilism           */
+/* (Enhanced with Rounded Corners & Earth Space Theme)       */
+/* ========================================================= */
+.uiverse-3d-input-wrapper {
+  perspective: 1200px;
+  width: 100%;
+}
+
+.uiverse-3d-input-container {
+  position: relative;
+  background: rgba(11, 20, 44, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 3px solid #070d1e;
+  outline: 2px solid rgba(51, 68, 193, 0.65);
+  box-shadow: 10px 10px 0 #050a16, 10px 10px 0 2px #3344c1;
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  transform: rotateX(5deg) rotateY(-5deg);
+}
+
+@media (max-width: 640px) {
+  .uiverse-3d-input-container {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+
+.uiverse-3d-input-container:hover,
+.uiverse-3d-input-container:focus-within {
+  transform: rotateX(1.5deg) rotateY(-0.5deg) scale(1.01);
+  outline-color: #3344c1;
+  box-shadow: 14px 14px 0 -3px #7cc133, 14px 14px 0 2px #3344c1, 0 20px 40px rgba(51, 68, 193, 0.45);
+}
+
+/* Ambient glow underneath */
+.uiverse-3d-input-shadow {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 30px;
+  transform: translateZ(-40px);
+  background: linear-gradient(
+    135deg,
+    rgba(51, 68, 193, 0.55) 0%,
+    rgba(124, 193, 51, 0.35) 100%
+  );
+  filter: blur(24px);
+  transition: all 400ms ease;
+}
+
+.uiverse-3d-input-container:hover .uiverse-3d-input-shadow,
+.uiverse-3d-input-container:focus-within .uiverse-3d-input-shadow {
+  filter: blur(32px);
+  opacity: 1;
+}
+
+/* 3D Top Badge (Interactive Model Indicator & Switcher) */
+.uiverse-3d-badge {
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  background: #3344c1;
+  color: #ffffff;
+  font-family: 'AlimamaShuHeiTi', sans-serif;
+  font-weight: 800;
+  padding: 4px 14px;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0 #050a16;
+  transform: translateZ(45px);
+  z-index: 25;
+  transition: all 400ms ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.uiverse-3d-badge:hover {
+  background: #7cc133;
+  color: #070d1e;
+  border-color: #070d1e;
+  box-shadow: 4px 4px 0 #3344c1;
+  transform: translateZ(50px) translateY(-2px);
+}
+
+/* 3D Action Button (Upload/Paperclip) */
+.uiverse-3d-btn {
+  cursor: pointer;
+  border-radius: 14px;
+  border: 2.5px solid #070d1e;
+  background: #3344c1;
+  color: #ffffff;
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 10;
+  box-shadow: 3px 3px 0 #050a16;
+}
+
+.uiverse-3d-btn:hover {
+  background: #7cc133;
+  color: #070d1e;
+  border-color: #070d1e;
+  transform: translateZ(25px) translateX(-3px) translateY(-3px);
+  box-shadow: 6px 6px 0 0 #050a16, 6px 6px 0 1px #3344c1;
+}
+
+.uiverse-3d-btn:active {
+  transform: translateZ(10px) translateX(0) translateY(0);
+  box-shadow: 2px 2px 0 #050a16;
+}
+
+/* 3D Textarea field */
+.uiverse-3d-textarea {
+  width: 100%;
+  outline: none;
+  border: 2px solid rgba(51, 68, 193, 0.45);
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: rgba(7, 13, 30, 0.75);
+  color: #ffffff;
+  transform: translateZ(15px);
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 10;
+  line-height: 1.6;
+}
+
+.uiverse-3d-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+.uiverse-3d-textarea:hover,
+.uiverse-3d-textarea:focus {
+  background: rgba(7, 13, 30, 0.95);
+  border-color: #7cc133;
+  transform: translateZ(20px) translateX(-2px) translateY(-2px);
+  box-shadow: 5px 5px 0 0 #3344c1;
+}
+
+/* ========================================================= */
+/* Uiverse.io Stacked Card Bubble by janisar-hyder           */
+/* (Adapted for Chat Messages with Theme Colors & Ergonomics) */
+/* ========================================================= */
+.uiverse-chat-stack {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  isolation: isolate;
+}
+
+.uiverse-chat-card {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(12, 22, 46, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.15rem 1.35rem;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Layer 1 behind */
+.uiverse-chat-card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  z-index: -2;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  transform-origin: center center;
+  transform: translateY(-2px) rotate(-1.5deg);
+}
+
+/* Layer 2 behind */
+.uiverse-chat-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  z-index: -1;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  transform-origin: center center;
+  transform: translateY(2px) rotate(1.5deg);
+}
+
+/* Hover Fanning Effect */
+.uiverse-chat-stack:hover .uiverse-chat-card::before {
+  transform: translateY(-4px) rotate(-3.2deg) scale(0.99);
+}
+
+.uiverse-chat-stack:hover .uiverse-chat-card::after {
+  transform: translateY(4px) rotate(3.2deg) scale(0.99);
+}
+
+/* --- User Message Theme (Earth Blue #3344c1) --- */
+.uiverse-chat-stack.is-user .uiverse-chat-card {
+  border: 1.5px solid rgba(51, 68, 193, 0.5);
+  box-shadow: 6px 6px 0 -2px rgba(5, 10, 22, 0.9), 6px 6px 0 0 rgba(51, 68, 193, 0.5);
+}
+
+.uiverse-chat-stack.is-user .uiverse-chat-card::before {
+  background: rgba(9, 16, 36, 0.75);
+  border: 1.5px solid rgba(51, 68, 193, 0.35);
+  box-shadow: 0 4px 16px rgba(51, 68, 193, 0.2);
+}
+
+.uiverse-chat-stack.is-user .uiverse-chat-card::after {
+  background: rgba(14, 25, 54, 0.85);
+  border: 1.5px solid rgba(51, 68, 193, 0.4);
+}
+
+.uiverse-chat-stack.is-user:hover .uiverse-chat-card {
+  box-shadow: 8px 8px 0 -2px rgba(5, 10, 22, 0.9), 8px 8px 0 0 #3344c1, 0 12px 28px rgba(51, 68, 193, 0.35);
+  border-color: #3344c1;
+}
+
+/* --- AI Assistant Message Theme (Earth Green #7cc133) --- */
+.uiverse-chat-stack.is-assistant .uiverse-chat-card {
+  border: 1.5px solid rgba(124, 193, 51, 0.45);
+  box-shadow: 6px 6px 0 -2px rgba(5, 10, 22, 0.9), 6px 6px 0 0 rgba(124, 193, 51, 0.45);
+}
+
+.uiverse-chat-stack.is-assistant .uiverse-chat-card::before {
+  background: rgba(9, 16, 36, 0.75);
+  border: 1.5px solid rgba(124, 193, 51, 0.3);
+  box-shadow: 0 4px 16px rgba(124, 193, 51, 0.2);
+}
+
+.uiverse-chat-stack.is-assistant .uiverse-chat-card::after {
+  background: rgba(14, 25, 54, 0.85);
+  border: 1.5px solid rgba(124, 193, 51, 0.35);
+}
+
+.uiverse-chat-stack.is-assistant:hover .uiverse-chat-card {
+  box-shadow: 8px 8px 0 -2px rgba(5, 10, 22, 0.9), 8px 8px 0 0 #7cc133, 0 12px 28px rgba(124, 193, 51, 0.35);
+  border-color: #7cc133;
+}
+
+/* ========================================================= */
+/* Model Switcher Neon Checkbox from Uiverse.io by 3HugaDa3  */
+/* ========================================================= */
+.uiverse-neon-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(10, 18, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 3px 6px;
+  height: 38px;
+  box-sizing: border-box;
+  gap: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.uiverse-model-checkbox {
+  --checkbox-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 3px 10px;
+  height: 30px;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+/* Gemini Theme (Cosmic Neon Blue) */
+.uiverse-model-checkbox.theme-gemini {
+  --checkbox-color: #5368f6;
+  --checkbox-gradient-end: #38bdf8;
+  --checkbox-shadow: rgba(83, 104, 246, 0.4);
+  --checkbox-border: rgba(83, 104, 246, 0.6);
+}
+
+/* Doubao Theme (Earth Neon Green) */
+.uiverse-model-checkbox.theme-doubao {
+  --checkbox-color: #7cc133;
+  --checkbox-gradient-end: #00ffaa;
+  --checkbox-shadow: rgba(124, 193, 51, 0.4);
+  --checkbox-border: rgba(124, 193, 51, 0.6);
+}
+
+.uiverse-model-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.uiverse-model-checkbox .checkmark {
+  position: relative;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: 2px solid var(--checkbox-border);
+  border-radius: 6px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 10px var(--checkbox-shadow);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.uiverse-model-checkbox .checkmark::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--checkbox-color), var(--checkbox-gradient-end));
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: scale(0) rotate(-45deg);
+}
+
+.uiverse-model-checkbox input:checked ~ .checkmark::before,
+.uiverse-model-checkbox.is-checked .checkmark::before {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.uiverse-model-checkbox .checkmark svg {
+  width: 0;
+  height: 0;
+  color: #070d1e;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.uiverse-model-checkbox input:checked ~ .checkmark svg,
+.uiverse-model-checkbox.is-checked .checkmark svg {
+  width: 12px;
+  height: 12px;
+  transform: rotate(360deg);
+}
+
+.uiverse-model-checkbox:hover .checkmark {
+  border-color: var(--checkbox-color);
+  transform: scale(1.08);
+  box-shadow:
+    0 0 12px var(--checkbox-shadow),
+    0 0 24px var(--checkbox-shadow),
+    inset 0 0 6px var(--checkbox-shadow);
+}
+
+.uiverse-model-checkbox input:checked ~ .checkmark,
+.uiverse-model-checkbox.is-checked .checkmark {
+  animation: neonPulse 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes neonPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--checkbox-shadow);
+  }
+  50% {
+    transform: scale(0.92);
+    box-shadow:
+      0 0 20px var(--checkbox-shadow),
+      0 0 35px var(--checkbox-shadow);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px var(--checkbox-shadow);
+  }
+}
+
+.uiverse-model-checkbox .model-label {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.3s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.uiverse-model-checkbox input:checked ~ .model-label,
+.uiverse-model-checkbox.is-checked .model-label {
+  color: var(--checkbox-color);
+  text-shadow: 0 0 10px var(--checkbox-shadow);
+  opacity: 1;
+}
+
+.uiverse-model-checkbox:hover .model-label {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.uiverse-model-checkbox.is-checked {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Glowing dots animation on hover */
+.uiverse-model-checkbox::after,
+.uiverse-model-checkbox::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--checkbox-color);
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.uiverse-model-checkbox::before {
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.uiverse-model-checkbox::after {
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.uiverse-model-checkbox:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+  box-shadow: 0 0 8px var(--checkbox-color);
+}
+
+.uiverse-model-checkbox:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(4px);
+  box-shadow: 0 0 8px var(--checkbox-color);
+}
